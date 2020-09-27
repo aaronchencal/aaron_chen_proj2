@@ -1,0 +1,234 @@
+<html>
+
+  <h1>Proj 2, Aaron Chen </h1>
+
+  <h1> Overview </h1>
+  This project was all about image filters and how we could use the properties
+  of frequencies to do classic image operations like blurring, straightening,
+  sharpening, etc.
+
+  <h2> 1.1 </h2>
+  <pr>
+    Pictured here is the original image, and then taking the partial
+    derivatives with respect to x or y. We used convolving with dx and dy
+    as defined by [1,-1] and [1,-1].T
+   </pr>
+   <br>
+    <img src="orig1.png" width="300" height="300"/>
+    <img src="orig2.png" width="300" height="300"/>
+    <img src="orig3.png" width="300" height="300"/>
+    <br>
+    <pr>Gradient magnitude computation was calculated by taking the sqrt of the
+      sum of the derivatives squared. I also binarized the image to hopefully
+      make it more visually appealing.</pr>
+    <br>
+    <img src="orig4.png" width="300" height="300"/>
+    <img src="orig5.png" width="300" height="300"/>
+      <br>
+
+  <h2> 1.2 </h2>
+  <pr>What differences do I see? I see that there is much less noise
+    and that we can see the edges much clearly. This is because Guassian
+    filter is a low pass filter and takes out high frequency noise.
+    Yes, they have the same resutls.
+   </pr>
+   <br>
+
+
+<pr></pr><br>
+   <img src="orig6.png" width="300" height="300"/>
+   <br>
+   <pr>Here we have, in order, the x gradient, y gradient, and gradient magnitude.</pr><br>
+   <img src="orig7.png" width="300" height="300"/>
+   <img src="orig8.png" width="300" height="300"/>
+   <img src="orig9.png" width="300" height="300"/>
+     <br>
+     <pr>Here are the DoG filters: x, andy.</pr><br>
+
+   <img src="orig10.png" width="300" height="300"/>
+   <img src="orig11.png" width="300" height="300"/>
+     <br>
+  <h2> 1.3 </h2>
+  <pr> Note that due to my hardware I was unable to try many angles...
+    thus my search space was much more limited to a few angles. I could have
+    waited longer to run but it was taking 10 minutes to run for 20 angles.
+    Here we show image straightening along with a histogram of numbre of
+    gradient angles that specific image has.
+
+  </pr>
+  <br>
+  <br>
+  <pr>Facade before straightening</pr><br>
+  <br>
+  <img src="str1.png" width="300" height="300"/>
+  <img src="str2.png" width="300" height="300"/>
+  <br>
+  <pr>Facade after straightening</pr><br>
+  <img src="str3.png" width="300" height="300"/>
+  <img src="str4.png" width="300" height="300"/>
+  <br>
+  <pr>leaning tower of pisa pre-straightening</pr><br>
+  <img src="str5.png" width="300" height="300"/>
+  <img src="str6.png" width="300" height="300"/>
+  <br>
+  <pr>leaning tower of pisa post-straightening</pr><br>
+
+  <img src="str7.png" width="300" height="300"/>
+  <img src="str8.png" width="300" height="300"/>
+  <br>
+  <pr>Unknown building prestraightened</pr><br>
+
+  <img src="str9.png" width="300" height="300"/>
+  <img src="str10.png" width="300" height="300"/>
+  <br>
+  <pr>unknown building poststraightened</pr><br>
+
+  <img src="str11.png" width="300" height="300"/>
+  <img src="str12.png" width="300" height="300"/>
+  <br>
+  <pr>earth before</pr><br>
+
+  <img src="str13.png" width="500" height="300"/>
+  <img src="str14.png" width="400" height="300"/>
+  <br>
+  <pr>earth after</pr><br>
+  <img src="str15.png" width="450" height="300"/>
+  <img src="str16.png" width="400" height="300"/>
+
+  <br>
+  <pr>this failed as Earth is just circular and there's not
+    much you can do to find edges inside the clouds/oceans.
+  </pr>
+
+  <h2> 2.1 </h2>
+  <pr> In this part we mess with blurring and hybrid images!
+  </pr>
+  <br><br>
+  <pr>Taj mahal original, and sharpened</pr><br>
+
+  <br>
+  <img src="twoone1.png" width="300" height="300"/>
+  <img src="twoone2.png" width="300" height="300"/>
+  <br>
+  <pr>Taj mahal blurred, and then sharpened. Notice we lost
+  a bit of detail... I think. Can't really tell for sure.</pr><br>
+
+  <img src="twoone3.png" width="300" height="300"/>
+  <img src="twoone4.png" width="300" height="300"/>
+  <br>
+  <pr>cat sharpened. I think there's little difference...</pr><br>
+
+  <img src="twoone5.png" width="400" height="300"/>
+  <img src="twoone6.png" width="400" height="300"/>
+  <br>
+  <pr>a different cat sharpened. You can tell the difference in the paw.</pr><br>
+
+  <img src="twoone7.png" width="180" height="300"/>
+  <img src="twoone8.png" width="180" height="300"/>
+<br>
+
+
+  <h2> 2.2 </h2>
+
+<pr>My friends, fused together! We use a gaussian as a low pass filter and
+a laplacian as a high pass filter and add the results of convolving the respective
+images to get an image that has high frequency near, and low frequency details far.</pr><br>
+  <br>
+  <img src="friend2.jpg" width="300" height="300"/>
+  <img src="friend3.jpg" width="300" height="300"/>
+  <img src="fusedfriends.png" width="300" height="300"/>
+  <br>
+  <pr> me and csgo character fused together.this fails because the features of the mask is just a solid color
+  block once its a little bit blurry, so it is visually hard to tell what
+  the two images are.
+</pr>
+  <img src="aaron.jpg" width="300" height="300"/>
+  <img src="csgo.jpg  " width="300" height="300"/>
+  <img src="aaroncsgo.png" width="300" height="300"/>
+  <br>
+  <pr>fft of me, fft of csgo char, fft of hybrid</pr><br>
+
+  <img src="fftaaron.png" width="400" height="250"/>
+  <img src="fftcsgo.png" width="400" height="250"/>
+  <img src="ffthybrid.png" width="400" height="250"/>
+  <br>
+
+  <h2> 2.3 </h2>
+  <pr>In this part we create Laplacian and Gaussian stacks in order to separate
+  the hybrid images that we created in the previous part.</pr>
+  <br>
+  <br>
+  <pr>Lincoln picture, gauss stack.</pr><br>
+
+  <img src="gas1.png" width="300" height="300"/>
+  <img src="gas2.png" width="300" height="300"/>
+  <img src="gas3.png" width="300" height="300"/>
+  <img src="gas4.png" width="300" height="300"/>
+  <img src="gas5.png" width="300" height="300"/>
+  <br>
+  <pr>Lincoln picture, laplacian stack.</pr><br>
+
+  <img src="gas1.png" width="300" height="300"/>
+  <img src="lap2.png" width="300" height="300"/>
+  <img src="lap3.png" width="300" height="300"/>
+  <img src="lap4.png" width="300" height="300"/>
+  <img src="lap5.png" width="300" height="300"/>
+
+<br>
+  <pr>Hybrid image, Gauss & laplacian stacks, respectively</pr><br>
+
+  <br>
+  <img src="gs1.png" width="300" height="300"/>
+  <img src="gs2.png" width="300" height="300"/>
+  <img src="gs3.png" width="300" height="300"/>
+  <img src="gs4.png" width="300" height="300"/>
+  <img src="gs5.png" width="300" height="300"/>
+  <br>
+  <img src="gs1.png" width="300" height="300"/>
+  <img src="ls2.png" width="300" height="300"/>
+  <img src="ls3.png" width="300" height="300"/>
+  <img src="ls4.png" width="300" height="300"/>
+  <img src="ls5.png" width="300" height="300"/>
+  <br>
+
+  <h2> 2.4 </h2>
+  <pr>In this part we combine images according
+   to the paper linked in the project. In short, we use a laplacian & Gaussian stack
+   along with a gaussian stacked mask to weigh the two, superimposing them and blurring
+   the middle with the gaussianed mask.
+ </pr><br>
+
+<br>
+  <pr>My version of the orapple...</pr><br>
+  <img src="orapple.jpg" width="300" height="300"/>
+  <br>
+  <pr> Combining the hand and eye, with the mask for it</pr><br>
+
+  <img src="hand.jpg" width="300" height="300"/>
+  <img src="eye.jpg" width="300" height="300"/>
+  <img src="handeye.jpg" width="300" height="300"/>
+  <img src="mask2.jpg.png" width="300" height="300"/>
+  <br>
+
+  <pr>Some progress photos... Shows them filtered with high/low filters </pr><br>
+
+  <img src="extra.jpg" width="300" height="300"/>
+  <img src="extrab.jpg" width="300" height="300"/>
+  <img src="extrac.jpg" width="300" height="300"/>
+  <img src="extrad.jpg" width="300" height="300"/>
+  <br>
+  <pr>Apple and mold fused together!</pr><br>
+
+  <br>
+  <img src="apple.jpeg" width="300" height="300"/>
+  <img src="mold.jpg" width="300" height="300"/>
+  <img src="applemold.jpg" width="300" height="300"/>
+  <br>
+
+<h1>conclusion</h1>
+  <pr>I learned a ton! I think learning about frequencies and the effects
+  that you can do with them was the most rewarding. The fusing was very fun.</pr><br>
+
+
+
+</html>
